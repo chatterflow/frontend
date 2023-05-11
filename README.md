@@ -1,4 +1,8 @@
-# UiAdmlocal
+# Comunicação vendedor-comprador
+
+- Página de chat entre vendedor e comprador
+
+- Componentes relacionados à comunicação entre vendedor e comprador (caixa de chat, notificações de mensagens, etc.)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 
