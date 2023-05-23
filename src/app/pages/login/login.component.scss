@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiko&display=swap');
+
+:root {
+    --primary-color: #0048b5;
+    --dark-blue: #004e7a;
+    --white: #ffffff;
+}
+
+body {
+    padding-top: 187px;
+}
+
+.separador {
+    background-color: #0048b5;
+    position: absolute;
+    width: 862px;
+    height: 872px;
+    left: 1058px;
+    top: 0px;
+}
+
+.switch {
+    color: #003ba8;
+}
+
+.imagem-logo {
+    position: absolute;
+    width: 862px;
+    height: 872px;
+    left: 1058px;
+    top: 0px;
+    background-color: #0048b5;
+    background-image: url(../../../assets/unsplash__3Q3tsJ01nc.png);
+    background-blend-mode: overlay;
+    border-radius:  0px 0px 0px 30px;
+}
+
+#v-compras {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 130%;
+    color: #0049B6;
+}
+
+#v-email-senha {
+    font-family: 'Abel';
+    font-style: normal;
+    font-size: 16px;
+    color: #A0AEC0;
+}
+
+.form-email-senha {
+    font-family: 'Abel';
+    font-style: normal;
+    font-size: 16px;
+    color: #A0AEC0;
+}
+
+.form-fonts {
+    font-family: 'Abel';
+}
+
+#logo-goshop {
+    width: 60px;
+    height: 61px;
+}
+
+#text-goshop {
+    font-family: 'Amiko';
+    font-size: 48px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
