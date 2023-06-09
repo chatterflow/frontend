@@ -1,18 +1,17 @@
 <div class="container">
     <app-navbar></app-navbar>
-
     <body>
         <div class="container-fluid">
             <div class="main-content">
                 <h2 id="v-compras">Vamos as compras !</h2>
                 <p id="v-email-senha">Coloque o email e senha para prosseguir com o login</p>
-                <form action="">
+                <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit()">
                     <div class="w-25 form-floating mt-2 mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="user">
                         <label for="floatingInput" class="form-email-senha ">Email</label>
                     </div>
                     <div class=" w-25 form-floating mt-2 mb-2">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
                         <label for="floatingPassword" class="form-email-senha ">Senha</label>
                     </div>
                     <div class="form-check form-switch">
@@ -21,7 +20,7 @@
                             logado</label>
                     </div>
                     <button class="form-fonts w-25 btn btn-secondary mt-2 mb-2 py-2" type="submit">LOGIN</button>
-                    <p class="form-fonts">Não tem conta ainda? <a href="#">Criar conta</a></p>
+                    <p class="form-fonts">Não tem conta ainda? <a routerLink="/register">Criar conta</a></p>
                 </form>
             </div>
         </div>
