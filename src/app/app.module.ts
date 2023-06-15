@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { NavbarTComponent } from './components/navbar-t/navbar-t.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarTComponent } from './components/navbar-t/navbar-t.component';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    NavbarTComponent
+    NavbarTComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
