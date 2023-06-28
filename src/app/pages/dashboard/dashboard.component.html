@@ -1,6 +1,68 @@
-<table>
-    <td *ngFor="let inf of info">
-        <tr>{{inf.nome_completo}}</tr>
-        <tr>{{inf.email}}</tr>
-    </td>
-</table>
+<app-navbar-d></app-navbar-d>
+<!-- <div class="chat">
+  <h3 class="chat-t">Chat</h3>
+</div> -->
+<div class="col-lg-1 p-0 mt-5 ms-3 rounded-3 border border-dark bg-baby-blue">
+  <p class="chat-t ms-3">CHAT</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 p-4 mb-1 text-black rounded-3 border border-dark bg-light" style="height: 600px;">
+      <p class="font-f">Mensagens</p>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Pesquisar chat" aria-label="search"
+          aria-describedby="basic-addon1" [(ngModel)]="searchTerm">
+      </div>
+      <div class="card mt-1 py-2" *ngFor="let inf of filteredInfo" (mouseover)="inf.isHovering = true"
+        (mouseout)="inf.isHovering = false" [ngClass]="{ 'bg-contact-hover border border-primary': inf.isHovering }"
+        (click)="loadThread(inf)">
+        <ul class="d-flex flex-row align-items-center list-unstyled">
+          <li class="ml-2">
+            <div class="chat-img rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px; position: absolute; top: 16px; left:14px;">
+              <i class="itens-font bi bi-person-fill" style="font-size: 30px;"></i>
+            </div>
+          </li>
+          <li class="ml-4 flex-grow-1 text-center">
+            <div class="card-body">
+              <p class="name-card-body">{{inf.nome_completo}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- TEMPLATE DE MSG -->
+    <div class="col-lg-7 p-5 ms-3 text-black rounded-3 border border-dark bg-light d-flex flex-column custom-parent" *ngIf="isThreadLoaded" style="height: 600px;">
+      <div class="p-4 text-black rounded-top border border-dark bg-white custom-child">
+        <div class="d-flex flex-row">
+          <i class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center itens-font bi bi-person-fill"
+            style="width: 40px; height: 40px;"></i>
+          <p class="font-f ms-3 mt-1">{{username}}</p>
+        </div>
+      </div>
+      <div class="overflow-auto your-element" style="max-height:500px;">
+        <div *ngFor="let message of threadMessages">
+          <div class="d-flex flex-column align-items-end mt-3" style="margin-top:3.7rem !important;"
+            *ngIf="message.sender_id === Userid">
+            <p class="small p-2 px-3 me-3 mb-1 text-white rounded-3 bg-primary" style="word-break: break-all;">{{
+              message.content }}
+            </p>
+            <p class="small mb-3 rounded-3 text-muted">{{message.created_at | date: 'HH:mm'}}</p>
+          </div>
+          <div class="d-flex flex-column align-items-start mt-3" style="margin-top:0.5rem !important;"
+            *ngIf="message.sender_id !== Userid">
+            <p class="small p-2 px-3 me-3 mb-1 text-white rounded-3 bg-pink-chat" style="word-break: break-all;">
+              {{message.content}}</p>
+            <p class="small mb-3 rounded-3 text-muted">{{message.created_at | date: 'HH:mm'}}</p>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="sendMsgForm" (ngSubmit)="onClickSubmit(threadId, sendMsgForm, Userid, receiverId)">
+        <div class="input-group mt-auto">
+          <input type="text" class="form-control" placeholder="Digite a mensagem" aria-label="Digite a mensagem"
+            aria-describedby="button-addon2" formControlName="message">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-send-fill"></i></button>
+        </div>
+      </form>
+    </div>

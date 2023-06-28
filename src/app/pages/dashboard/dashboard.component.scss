@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+
+.chat-t {
+    /* chat */
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #004E7A;
+}
+
+.font-f {
+    font-family: 'Public Sans';
+    font-size: 20px;
+    color: black;
+}
+
+.name-card-body {
+    font-family: 'Public Sans';
+    left: 72px;
+    top: 22px;
+    position: absolute;
+}
+
+
+.custom-parent {
+    position: relative;
+    padding-top: 30px;
+    /* Adjust according to your design */
+}
+
+.custom-child {
+    position: absolute;
+    top: 0px;
+    /* Adjust according to your design */
+    left: 0;
+    right: 0;
+}
+
+/* For Firefox */
+.your-element {
+    scrollbar-width: thin;
+    scrollbar-color: #797979 #636363;
+}
+
+/* For Chrome, Safari, and Edge */
+.your-element::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+.your-element::-webkit-scrollbar-track {
+    background: #636363;
+    /* color of the tracking area */
+}
+
+.your-element::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid #797979;
+    /* creates padding around scroll thumb */
+}
