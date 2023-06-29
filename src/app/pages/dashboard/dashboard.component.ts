@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UsersService } from 'src/app/core/services/users/users.service';
-import { ThreadInfo } from 'src/app/core/interfaces/thread-info';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserInterface } from 'src/app/core/interfaces/user-interface';
 import { ThreadMsg } from 'src/app/core/interfaces/thread-msg';
 import { SocketService } from 'src/app/core/services/socket/socket.service';
-import { MessageInterface } from 'src/app/core/interfaces/message-interface';
 import { MessageEssentials } from 'src/app/core/interfaces/message-essentials';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
@@ -13,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  @ViewChild('yourElement', { static: false })
+  private yourElement!: ElementRef;
   threadId: string | undefined;
   senderId: string | undefined;
   receiverId: string | undefined;
@@ -32,6 +32,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private UserService: UsersService, private SocketService: SocketService, private fb: FormBuilder) {
 
   }
+  scrollToBottom(): void {
+    try {
+      this.yourElement.nativeElement.scrollTop = this.yourElement.nativeElement.scrollHeight;
+    } catch (err) {
+      console.log('Error in scrollToBottom:', err);
+    }
+  }
+
   ngOnDestroy(): void {
     this.SocketService.disconnect();
   }
@@ -42,16 +50,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
     this.SocketService.messages$.subscribe((newMessage) => {
       this.threadMessages.push(newMessage);
+      setTimeout(() => this.scrollToBottom(), 0);
     });
 
   }
 
   loadThread(thread: any): void {
-    // console.log(thread)
     this.username = thread.nome_completo;
     this.threadId = thread.thread_id;
     this.receiverId = thread.other_participant_id;
-    // console.log(this.username, this.threadId, this.receiverId)
     this.SocketService.disconnect();
     this.username = thread.nome_completo;
     this.SocketService.connect(thread.thread_id, this.Userid);
@@ -59,8 +66,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.UserService.getMsgThread(thread.thread_id).subscribe({
       next: (messages: ThreadMsg[]) => {
         this.threadMessages = messages;
+        this.scrollToBottom();
       },
-      error: (err: any) => console.error(err)
+      error: (err: any) => console.error(err),
+      complete: () => { setTimeout(() => this.scrollToBottom(), 0) },
     });
   }
 
@@ -73,7 +82,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       sender_id: sender_id as string,
       receiver_id: receiver_id as string,
     };
-    if (!messageContent){
+    if (!messageContent) {
       console.log("error");
     } else {
       this.SocketService.send(body);
