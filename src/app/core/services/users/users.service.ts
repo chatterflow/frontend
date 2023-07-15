@@ -22,7 +22,7 @@ export class UsersService {
   }
 
   async doLoginCall(userEmail: any, userP: any) {
-    const url = `${this.domain}/login`;
+    const url = `${this.domain}/user/login`;
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('accept', 'application/json');
@@ -45,20 +45,20 @@ export class UsersService {
 
 
   getUsers(userId: string): Observable<ThreadInfo[]> {
-    const url = `${this.domain}/threadsByPp/?participant_1=${userId}`
+    const url = `${this.domain}/thread/participant/${userId}`
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.UserService.get<ThreadInfo[]>(url, { headers });
   }
 
   async saveUser(data: any) {
-    return this.UserService.post(`${this.domain}/users`, data, { headers: this.header }).subscribe((data) => {
-      console.log(data)
+    return this.UserService.post(`${this.domain}/user`, data, { headers: this.header }).subscribe((data) => {
+      // console.log(data)
     })
   }
 
   getMsgThread(threadId: string): Observable<ThreadMsg[]> {
-    const url = `${this.domain}/messsages/${threadId}`;
+    const url = `${this.domain}/messsages/threadId/${threadId}`;
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
 
