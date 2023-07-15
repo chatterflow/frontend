@@ -2,14 +2,14 @@
     <app-navbar-t></app-navbar-t>
     <div class="teste-img"></div>
     <div class="d-flex flex-column align-items-center">
-        <h2 class="itens-font">Bem vindo!</h2>
-        <h3 class="itens-font2">Crie sua conta agora e vamos as compras</h3>
+        <h2 class="itens-font">Welcome!</h2>
+        <h3 class="itens-font2">Create your account now and let's chat!</h3>
     </div>
     <div class="main-content">
 
         <body class="rectangle">
             <div class="d-flex flex-column align-items-center mt-5">
-                <h2 id="v-compras" class="mt-3">Registre com:</h2>
+                <h2 id="v-compras" class="mt-3">Register with:</h2>
                 <ul class="list-group list-group-horizontal list-group-flush mb-2">
                     <li class="list-group-item bg-transparent">
                         <button class="btn btn-outline-secondary">
@@ -27,13 +27,13 @@
                         </button>
                     </li>
                 </ul>
-                <h2 id="v-compras">ou</h2>
+                <h2 id="v-compras">or</h2>
                 <form [formGroup]="registerUserForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
                     <div class="d-flex flex-row gap-5 align-items-center">
                         <div class="d-flex flex-column gap-4 mt-3 mb-3">
                             <div class="form-floating">
-                                <input type="name" class="form-control" id="floatingInput" placeholder="Nome" formControlName="nome_completo"/>
-                                <label for="floatingInput" class="form-email-senha">Nome</label>
+                                <input type="name" class="form-control" id="floatingInput" placeholder="Name" formControlName="nome_completo"/>
+                                <label for="floatingInput" class="form-email-senha">Name</label>
                             </div>
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="floatingInput"
@@ -43,19 +43,19 @@
                             <div class="form-floating">
                                 <input type="date" class="form-control" id="dataNascCadastro"
                                     aria-describedby="dataNascHelp" placeholder="data" formControlName="data_nascimento">
-                                <label for="dataNascCadastro" class="form-email-senha">Data de Nascimento</label>
+                                <label for="dataNascCadastro" class="form-email-senha">Birth Date</label>
                             </div>
                         </div>
                         <div class="d-flex flex-column gap-4 mt-3 mb-3">
                             <div class="form-floating">
                                 <select class="form-select" id="floatingSelect"
                                     aria-label="Floating label select example" formControlName="genero">
-                                    <option style="color:grey" disabled [value]="null" selected>Selecione</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Feminino">Feminino</option>
-                                    <option value="Prefiro não informar">Prefiro não informar</option>
+                                    <option style="color:grey" disabled [value]="null" selected>Select</option>
+                                    <option value="Masculino">Male</option>
+                                    <option value="Feminino">Female</option>
+                                    <option value="Prefiro não informar">Prefer not to say</option>
                                 </select>
-                                <label for="floatingSelect" class="form-email-senha">Gênero</label>
+                                <label for="floatingSelect" class="form-email-senha">Gender</label>
                             </div>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingInput" pattern="[0-9]*" placeholder="CPF" minlength="11" maxlength="11" formControlName="cpf"/>
@@ -64,15 +64,15 @@
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="floatingPassword"
                                     placeholder="Password" formControlName="senha"/>
-                                <label for="floatingPassword" class="form-email-senha">Senha</label>
+                                <label for="floatingPassword" class="form-email-senha">Password</label>
                             </div>
                         </div>
                     </div>
                     <button class="form-fonts btn btn-secondary px-5 mt-2 mb-2 py-2" type="submit">
-                        CRIAR CONTA
+                        CREATE ACCOUNT
                     </button>
                     <p class="form-fonts d-flex flex-column align-items-center">
-                        Já tem uma conta? <a routerLink="/">Faça login </a>
+                        Already have an account? <a routerLink="/">Login </a>
                     </p>
                 </form>
                 <!-- Debug form -->
