@@ -11,6 +11,11 @@ import { RegisterComponent } from './pages/register/register.component';
 import { NavbarTComponent } from './components/navbar-t/navbar-t.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarDComponent } from './components/navbar-d/navbar-d.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { NavbarDComponent } from './components/navbar-d/navbar-d.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
