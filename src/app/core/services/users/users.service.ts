@@ -53,7 +53,6 @@ export class UsersService {
 
   async saveUser(data: any) {
     return this.UserService.post(`${this.domain}/user`, data, { headers: this.header }).subscribe((data) => {
-      // console.log(data)
     })
   }
 
@@ -72,5 +71,13 @@ export class UsersService {
       .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
 
     return this.UserService.get(url, { headers });
+  }
+
+
+  getAllUsers() : Observable<UserInterface[]>{
+    const url = `${this.domain}/users`;
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json');
+    return this.UserService.get<UserInterface[]>(url, {headers})
   }
 }
