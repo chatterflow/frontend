@@ -2,34 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiko&display=swap');
 
 
-body {
-    padding-top: 187px;
+.box-area{
+    width: 1024px;
 }
 
-.separador {
-    background-color: #0048b5;
-    position: absolute;
-    width: 862px;
-    height: 872px;
-    left: 1058px;
-    top: 0px;
-}
-
-.switch {
-    color: #003ba8;
-}
-
-.imagem-logo {
-    position: absolute;
-    width: 862px;
-    height: 872px;
-    left: 1058px;
-    top: 0px;
-    background-color: #0048b5;
-    background-image: url(../../../assets/unsplash__3Q3tsJ01nc.png);
+.imagem-teste {
+    background-image: url(../../../assets/unsplash-1-christin-hume-Hcfwew744z4.jpg);
     background-blend-mode: overlay;
-    border-radius:  0px 0px 0px 30px;
 }
+
+@media (max-width: 991px) {
+    .navbar-brand {
+      position: relative;
+      padding-right: 15px;
+    }
+  }
 
 #v-compras {
     font-family: 'Abel';
@@ -53,14 +40,14 @@ body {
     font-size: 16px;
     color: #A0AEC0;
 }
+.checkbox-font {
+    font-family: 'Abel';
+    font-style: normal;
+    font-size: 16px;
+}
 
 .form-fonts {
     font-family: 'Abel';
-}
-
-#logo-goshop {
-    width: 60px;
-    height: 61px;
 }
 
 #text-goshop {
@@ -69,3 +56,4 @@ body {
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
