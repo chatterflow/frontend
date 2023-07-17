@@ -4,9 +4,18 @@
             <a class="navbar-brand mx-2" id="t-logo" href="#"><span><i class="bi bi-chat-square-dots-fill"></i></span> ChatterFlow</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto gap-5 px-4">
-                    <li class="nav-item"><i class="itens-font bi bi-arrow-left-square-fill text-leave" (click)="submit()"></i></li>
+                    <li class="nav-item dropdown">    
+                        <span dropdown>
+                        <a href id="basic-link" dropdownToggle (click)="false"
+                           aria-controls="basic-link-dropdown"><i class="itens-font bi bi-person-fill"></i></a>
+                        <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+                            role="menu" aria-labelledby="basic-link">
+                          <li>
+                            <a class="dropdown-item itens-font text-black" routerLink="/"><i class="itens-font bi bi-arrow-left-square-fill text-secondary" (click)="submit()"></i> LOGOUT</a>
+                          </li>
+                        </ul>
+                      </span>         
                     <li class="nav-item"><i class="itens-font bi bi-bell-fill"></i></li>
-                    <li class="nav-item"><i class="itens-font bi bi-person-fill"></i></li>
                 </ul>
             </div>
         </div>
